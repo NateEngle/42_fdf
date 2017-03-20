@@ -10,4 +10,26 @@
 #                                                                              #
 # **************************************************************************** #
 
+NAME = fdf
 
+CC = gcc 
+
+CFLAGS = -Wall -Wextra -Werror 
+
+INCLUDES = -L./libft -lft -L./minilibx_macos -lmlx -framework OpenGL -framework Appkit
+
+SRCS = main.c pixel_functions.c
+
+PHONY = all re clean fclean
+
+all: $(NAME)
+
+$(NAME): $(SRCS)
+	@$(CC) $(CFLAGS) -o $(NAME) $(INCLUDES) $(SRCS)
+
+clean:
+
+fclean: clean
+	rm $(NAME)
+
+re: fclean all
